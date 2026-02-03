@@ -1,0 +1,61 @@
+@import "./theme.scss";
+
+.ai-side-elements {
+  @media only screen and (max-width: 800px) {
+    display: none;
+  }
+
+  .ai-side-elements-container {
+    position: fixed;
+    bottom: 0;
+    z-index: 1;
+
+    .ai-side-elements-item {
+      margin: 20px 0;
+      cursor: pointer;
+
+      svg {
+        stroke: $themeColor3;
+      }
+
+      .ai-side-elements-text {
+        color: $themeColor3;
+        letter-spacing: 2px;
+        writing-mode: vertical-rl;
+
+        .ai-side-elements-subtext {
+          font-size: 11px;
+          letter-spacing: 1px;
+          margin-top: 12px;
+          opacity: 0.9;
+        }
+      }
+
+      &:hover {
+        svg {
+          stroke: $themeColor4;
+        }
+
+        .ai-side-elements-text {
+          color: $themeColor4;
+        }
+      }
+    }
+
+    .ai-side-elements-line {
+      display: block;
+      width: 1px;
+      height: 90px;
+      margin: 10px auto 0 auto;
+      background-color: $themeColor3;
+    }
+  }
+
+  .ai-side-elements-left {
+    left: 2.5%;
+  }
+
+  .ai-side-elements-right {
+    right: 2.5%;
+  }
+}

@@ -1,0 +1,52 @@
+@import "./theme.scss";
+
+.ai-pre-loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: 100;
+
+  .ai-pre-loader-boarder {
+    background-color: $themeColor1;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    // border: 1px solid $themeColor3;
+  }
+
+  .ai-pre-loader-container {
+    width: 100vw;
+    height: 100vw;
+    max-width: 900px;
+    max-height: 900px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      fill: $themeColor3;
+    }
+  }
+
+  .ai-pre-loader-name {
+    font-size: clamp(28px, 6vw, 72px);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: $themeColor3;
+    border: 2px solid $themeColor3;
+    padding: 18px 28px;
+  }
+}
+
+.ai-pre-loader-enabled {
+}
+
+.ai-pre-loader-disabled {
+  height: 0;
+  opacity: 0;
+  transition: all 1s cubic-bezier(1, -0.6, 0, 1.92);
+  overflow: hidden;
+}
