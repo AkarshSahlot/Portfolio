@@ -168,6 +168,7 @@
         white-space: nowrap;
         animation: fireBullet 2.5s linear forwards;
         box-shadow: 0 0 10px $themeColor4;
+        z-index: 100;
 
         &::after {
           content: '';
