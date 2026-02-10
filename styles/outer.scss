@@ -42,11 +42,93 @@
     }
   }
 
-  .ai-outer-gooery {
+}
+
+.ai-outer-gooery {
+  position: absolute;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  flex: 1;
+}
+
+/* Skill Gun Styles */
+.ai-skill-gun-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  /* Gun on left */
+  width: 100%;
+  height: 150px;
+  /* Reduced height for Hero */
+  overflow: hidden;
+  /* Hide bullets when they go off screen */
+  margin-top: 20px;
+
+  .ai-skill-gun {
+    flex-shrink: 0;
+    z-index: 10;
+    width: 120px;
+    /* Slightly smaller for Hero */
+    transition: transform 0.1s ease;
+
+    &.recoil {
+      transform: translateX(-10px);
+    }
+  }
+
+  .ai-skill-bullets-container {
+    position: absolute;
+    left: 110px;
+    /* Start from end of gun */
+    top: 0;
+    bottom: 0;
+    width: calc(100% - 110px);
+    pointer-events: none;
+  }
+
+  .ai-skill-bullet {
     position: absolute;
     left: 0;
-    width: 100vw;
-    height: 100vh;
-    flex: 1;
+    background: $themeColor4;
+    color: #000;
+    padding: 5px 12px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    white-space: nowrap;
+    animation: fireBullet 2.5s linear forwards;
+    box-shadow: 0 0 10px $themeColor4;
+    z-index: 100;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: 100%;
+      width: 20px;
+      height: 2px;
+      background: linear-gradient(to left, $themeColor4, transparent);
+    }
   }
+}
+
+@keyframes fireBullet {
+  0% {
+    transform: translateX(0) scale(0.5);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+    transform: translateX(20px) scale(1);
+  }
+
+  100% {
+    transform: translateX(800px);
+    /* Fly off screen */
+    opacity: 0;
+  }
+}
 }

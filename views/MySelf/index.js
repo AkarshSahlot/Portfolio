@@ -4,7 +4,6 @@ import HoverImage from '../../components/HoverImage'
 import ViewsTitle from '../../components/ViewsTitle'
 import Helm from '../../components/SVGs/Helm'
 import { useParallax } from 'react-scroll-parallax'
-import SkillGun from '../../components/SkillGun'
 
 const Paragraph = ({ text }) => (
     <div data-aos="zoom-in-left" className='ai-myself-paragraph'>
@@ -79,8 +78,7 @@ const MySelf = ({ data: {
                                     list1={techList1}
                                     list2={techList2}
                                 />
-                                <SkillGun items={skillsIcons} />
-                                {/* <SkillIcons items={skillsIcons} /> */}
+                                <SkillIcons items={skillsIcons} />
                             </div>
                         </div>
                         <div className='col-12 col-md-4 mt-5 mt-md-0'>

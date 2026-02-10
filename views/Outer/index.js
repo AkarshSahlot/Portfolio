@@ -4,13 +4,15 @@ import DecryptText from '../../components/DecryptText'
 import PropTypes from 'prop-types'
 
 
+import SkillGun from '../../components/SkillGun'
+
 const Outer = ({ data: {
     title1,
     title2,
     decrypTexts,
     desciption,
     button
-} }) => {
+}, skills }) => {
     return (
         <div className='ai-outer'>
             <div className='container'>
@@ -30,6 +32,12 @@ const Outer = ({ data: {
                         <div className='ai-outer-description'>
                             {desciption}
                         </div>
+
+                        {/* Skill Gun Animation */}
+                        <div style={{ marginTop: '20px', marginBottom: '20px', width: '100%', maxWidth: '600px' }}>
+                            <SkillGun items={skills} />
+                        </div>
+
                         <div className='ai-outer-contact'>
                             <button onClick={button?.onClick} className='ai-button'>
                                 {button?.label}

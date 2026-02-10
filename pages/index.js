@@ -35,7 +35,7 @@ export default function Home() {
         <SideElements data={sideElements} />
 
         <ViewElement id="home">
-          <Outer data={outer} />
+          <Outer data={outer} skills={mySelf.skillsIcons} />
         </ViewElement>
 
         <ViewElement id="my-self">
