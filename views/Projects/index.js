@@ -50,9 +50,20 @@ const ProjectTextSide = (props) => {
                 data-aos={`zoom-in-${side}`}
                 className='ai-projects-text-title'
                 onClick={() => url && openLink(url)}
-                style={{ cursor: url ? 'pointer' : 'default' }}
+                style={{
+                    cursor: url ? 'pointer' : 'default',
+                    transition: 'transform 0.3s ease, color 0.3s ease',
+                }}
+                onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'scale(1.05)';
+                    e.currentTarget.style.color = '#00f260'; // Cool accent color
+                }}
+                onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'scale(1)';
+                    e.currentTarget.style.color = '';
+                }}
             >
-                {title}
+                {title} {label === 'Featured Project' && <span style={{ fontSize: '0.6em', verticalAlign: 'middle', backgroundColor: '#0575E6', padding: '2px 6px', borderRadius: '4px', color: 'white' }}>Featured</span>}
             </div>
             <div
                 data-aos={`zoom-in-${side}`}
@@ -117,8 +128,11 @@ const Projects = ({ data: {
     }, [githubUsername, limit])
 
     const projectsList = useMemo(() => {
-        if (repos.length) return repos
-        return list || []
+        let combined = [...(list || [])];
+        if (repos.length) {
+            combined = [...combined, ...repos];
+        }
+        return combined;
     }, [repos, list])
     return (
         <div className='ai-projects'>
